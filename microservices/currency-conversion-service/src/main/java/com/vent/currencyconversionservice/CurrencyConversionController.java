@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class CurrencyConversionController {
 
     private final CurrencyExchangeProxy currencyExchangeProxy;
-    @GetMapping("/currency-conversion/from/{from}/to/{to}/quantity/{quantity}/")
+    @GetMapping("/currency-conversion/from/{from}/to/{to}/quantity/{quantity}")
     public CurrencyConversion calculateCurrencyConversion (@PathVariable String from, @PathVariable String to, @PathVariable BigDecimal quantity) {
 
         HashMap<String, String> uriVariables = new HashMap<>();
@@ -29,7 +29,7 @@ public class CurrencyConversionController {
         return new CurrencyConversion(conversion.getId(), from, to, quantity, conversion.getConversionMultiple(), quantity.multiply(conversion.getConversionMultiple()), conversion.getEnvironment() + " restTemplate");
     }
 
-    @GetMapping("/currency-conversion-feign/from/{from}/to/{to}/quantity/{quantity}/")
+    @GetMapping("/currency-conversion-feign/from/{from}/to/{to}/quantity/{quantity}")
     public CurrencyConversion calculateCurrencyConversionFeign (@PathVariable String from, @PathVariable String to, @PathVariable BigDecimal quantity) {
 
 //        HashMap<String, String> uriVariables = new HashMap<>();
