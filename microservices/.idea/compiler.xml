@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="currency-conversion-service" />
         <module name="currency-exchange-service" />
+        <module name="naming-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
