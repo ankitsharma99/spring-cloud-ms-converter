@@ -21,3 +21,6 @@ http://localhost:8765/CURRENCY-CONVERSION/currency-conversion/from/USD/to/INR/qu
 
 API GATEWAYS MODIFIED:
 http://localhost:8765/currency-exchange/currency-exchange/from/USD/to/INR
+
+API gateways after API Gateway Configuration using routeLocator:
+http://localhost:8765/currency-exchange/from/USD/to/INR

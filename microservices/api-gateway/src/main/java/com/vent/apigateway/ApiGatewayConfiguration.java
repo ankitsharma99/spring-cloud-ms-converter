@@ -21,6 +21,9 @@ public class ApiGatewayConfiguration {
                 .filters(f -> f.addRequestHeader("MyHeader", "My URI")
                         .addRequestParameter("MyParam", "myValue"))
                 .uri("http://httpbin.org:80"))
+                .route(p->p.path("/currency-exchange/**")
+                        .uri("lb://currency-exchange")
+                )
                 .build();
     }
 }
