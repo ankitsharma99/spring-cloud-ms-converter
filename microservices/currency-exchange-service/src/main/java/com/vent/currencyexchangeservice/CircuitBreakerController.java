@@ -11,11 +11,14 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 public class CircuitBreakerController {
     @GetMapping("/sample-api")
-    @Retry(name = "sample-api")
+    @Retry(name = "sample-api", fallbackMethod = "hardCodedResponse")
     public String sampleApi() {
         log.info("Sample Api call received");
         ResponseEntity<String> forEntity = new RestTemplate().getForEntity("http://localhost:8080/some-dummy-url", String.class);
 
         return forEntity.getBody();
+    }
+    public String hardCodedResponse(Exception exception) {
+        return "hardCodedResponse";
     }
 }
