@@ -13,6 +13,17 @@ services:
     environment:
      EUREKA.CLIENT.SERVICE-URL.DEFAULTZONE: http://naming-server:8761/eureka
 
+  currency-conversion:
+    image: ankitsharma99/converter-currency-conversion-service:0.0.1-SNAPSHOT
+    mem_limit: 700m
+    ports:
+      - "8100:8100"
+    networks:
+      - currency-network
+    depends_on:
+      - naming-server
+    environment:
+      EUREKA.CLIENT.SERVICE-URL.DEFAULTZONE: http://naming-server:8761/eureka
 
   naming-server:
     image: ankitsharma99/converter-naming-server:0.0.1-SNAPSHOT
@@ -21,5 +32,6 @@ services:
       - "8761:8761"
     networks:
       - currency-network
+
 networks:
   currency-network:
